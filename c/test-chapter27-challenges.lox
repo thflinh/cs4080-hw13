@@ -1,0 +1,18 @@
+// HW13: exercises Chapter 27 challenge natives (hasField, getField, setField, deleteField).
+
+class Box {}
+var b = Box();
+
+// setField / getField with a runtime-built name
+var key = "item";
+setField(b, key, "hello");
+print getField(b, key); // expect: hello
+
+// hasField before unsafe dot access
+if (hasField(b, "item")) {
+  print b.item; // expect: hello
+}
+
+// deleteField removes the table entry (not the same as setting nil)
+deleteField(b, "item");
+print hasField(b, "item"); // expect: false
